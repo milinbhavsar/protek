@@ -1,0 +1,6 @@
+{
+  "/API": {
+    "target": "http://pro-tekconsulting.com",
+    "changeOrigin": true
+  }
+}
