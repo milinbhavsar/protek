@@ -8,10 +8,14 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
+  user: User;
+
   private loggedIn = new BehaviorSubject<boolean>(this.checkLogin());
 
+  constructor(private http: HttpClient, private router: Router) { }
+
   get isLoggedIn() {
-    console.log('loggedIn'+ this.loggedIn.getValue());
+    // console.log('loggedIn' + this.loggedIn.getValue());
     return this.loggedIn.asObservable(); // {2}
   }
 
@@ -28,9 +32,6 @@ export class AuthService {
     return false;
   }
 
-
-  constructor(private http: HttpClient, private router: Router) { }
-
   login(body: {email: string, pwd: string}, url: string) {
     return this.http.post<User>('/API/login', body)
       .map((data) => {
@@ -44,18 +45,25 @@ export class AuthService {
   logout() {
     window.localStorage.removeItem('currentUser');
     this.loggedIn.next(false);
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 
   getUser(): User {
+    if (this.user) {
+      return this.user;
+    }
     const user = window.localStorage.getItem('currentUser');
     if (user) {
       try {
-        return JSON.parse(user);
+        return this.user = JSON.parse(user);
       } catch (e) {
       }
     }
     return null;
+  }
+
+  getUserId(): string {
+    return this.getUser().user_id;
   }
 
 }

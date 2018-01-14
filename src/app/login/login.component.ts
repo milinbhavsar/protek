@@ -6,7 +6,7 @@ import {MatDialog} from '@angular/material';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 
 @Component({
-  selector: 'sr-login',
+  // selector: 'sr-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

@@ -1,3 +1,11 @@
-<p>
-  header works!
-</p>
+<mat-toolbar color="primary">
+  <span>
+    <img src="" class="logo">
+    Protek APIs
+  </span>
+  <span class="fill-remaining-space"></span>
+  <button mat-button [routerLink]="['dashboard']">Dashboard</button>
+  <button mat-button [routerLink]="['timesheets']">Timesheets</button>
+
+  <!--<button mat-button (click)="onLogout()">Logout</button>-->
+</mat-toolbar>

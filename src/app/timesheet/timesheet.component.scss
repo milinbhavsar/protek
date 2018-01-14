@@ -1,0 +1,9 @@
+
+
+.week-time {
+  display: flex;
+  flex-direction: column;
+  > * {
+    width: 100%;
+  }
+}

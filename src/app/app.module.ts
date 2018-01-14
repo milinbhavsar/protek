@@ -15,6 +15,13 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { HomeComponent } from './home/home.component';
+import { TimesheetsComponent } from './timesheets/timesheets.component';
+import {TimesheetsService} from './shared/timesheets.service';
+import {TimesheetsResolve} from './timesheets/timesheets.resolve';
+import {MomentModule} from 'angular2-moment';
+import { TimesheetComponent } from './timesheet/timesheet.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -23,7 +30,11 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    HomeComponent,
+    TimesheetsComponent,
+    TimesheetComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,13 +44,20 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MomentModule
   ],
   providers: [
     AuthGuard,
-    AuthService
+    AuthService,
+    TimesheetsService,
+    TimesheetsResolve
   ],
-  entryComponents: [ErrorDialogComponent],
+  entryComponents: [
+    ErrorDialogComponent,
+    TimesheetComponent,
+    ConfirmDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

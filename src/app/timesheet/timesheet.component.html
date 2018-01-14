@@ -1,0 +1,51 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div mat-dialog-title>
+    <h1>
+      Enter time for: {{startDate | date:'MM/dd/yyyy'}} to {{endDate | date:'MM/dd/yyyy'}}
+    </h1>
+    <button mat-raised-button (click)="load40()" type="button">Load 8 hours each week day</button>
+  </div>
+  <div mat-dialog-content>
+
+    <div class="week-time">
+      <mat-form-field class="project-name">
+        <input matInput placeholder="Project Name" type="text" formControlName="projectName">
+      </mat-form-field>
+
+      <mat-form-field class="hours-input-field">
+        <input matInput placeholder="Sunday {{week.Sunday | date:'MM/dd/yyyy'}}" type="number" formControlName="Sunday">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Monday {{week.Monday | date:'MM/dd/yyyy'}}" type="number" formControlName="Monday">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Tuesday {{week.Tuesday | date:'MM/dd/yyyy'}}" type="number" formControlName="Tuesday">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Wednesday {{week.Wednesday | date:'MM/dd/yyyy'}}" type="number" formControlName="Wednesday">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Thursday {{week.Thursday | date:'MM/dd/yyyy'}}" type="number" formControlName="Thursday">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Friday {{week.Friday | date:'MM/dd/yyyy'}}" type="number" formControlName="Friday">
+      </mat-form-field>
+
+      <mat-form-field class="input-field">
+        <input matInput placeholder="Saturday {{week.Saturday | date:'MM/dd/yyyy'}}" type="number" formControlName="Saturday">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="cancel()" type="button">No Thanks</button>
+    <button mat-raised-button color="primary" type="submit" cdkFocusInitial>Submit</button>
+  </div>
+</form>
+
+

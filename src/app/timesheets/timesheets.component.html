@@ -1,0 +1,24 @@
+<h2>Timesheets</h2>
+
+<mat-card class="time-card" *ngFor="let timeSheet of allTime; let index = index">
+  <mat-card-title>
+    {{timeSheet.startDate | date:'MM/dd/yyyy' }} - {{timeSheet.endDate | date:'MM/dd/yyyy' }}
+  </mat-card-title>
+  <mat-card-content>
+    <div *ngIf="timeSheet.isPending; else done">
+      Pending
+    </div>
+    <ng-template #done>
+      total hours: {{timeSheet.protekTimesheet.working_hours}}
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions *ngIf="timeSheet.isPending">
+    <button mat-raised-button color="primary" (click)="addTime(timeSheet.startDate, index)">Add time</button>
+  </mat-card-actions>
+</mat-card>
+
+<!--
+<div *ngFor="let timesheet of timesheets">
+  Week {{timesheet.start_date}} - {{timesheet.end_date}}: Hours worked: {{timesheet.working_hours}}
+</div>`
+-->

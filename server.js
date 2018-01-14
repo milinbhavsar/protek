@@ -7,9 +7,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/api/*', function(req, res) {
   let url = 'http://pro-tekconsulting.com'+ req.baseUrl;
-  console.log('API');
-  console.log(url);
-  console.log(req.baseUrl);
   let r = null;
   if(req.method === 'POST') {
     r = request.post({uri: url, json: req.body});

@@ -32,6 +32,5 @@ Temporary Items
 # IntelliJ project files
 .idea
 *.iml
-.idea/
 node_modules/
 dist
